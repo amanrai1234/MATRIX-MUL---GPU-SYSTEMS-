@@ -50,10 +50,14 @@ dimensions, but it was better for creating dimGrids depending on nsize.
 # Comparison of versions:
 
 # USING Float size:(Main Reference Comparisions)
-128 512 1024 2048
-GPU 0.0744 0.0567 0.5670 0.0974
-SEQ 0.00168 0.18911 1.3487 47.6565
+       128     512      1024     2048
+
+GPU   0.0744   0.0567   0.5670  0.0974
+
+SEQ   0.00168 0.18911 1.3487 47.6565
+
 OPENMP 0.00407 0.03434 0.30945 11.6471
+
 
 
 The above is the comparision of CUDA vs OPENMP vs Sequential version of the code and I 
