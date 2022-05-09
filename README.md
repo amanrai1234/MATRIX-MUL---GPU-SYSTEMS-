@@ -116,9 +116,12 @@ round of the value to misinterpret result but yes, I have observed that the amou
 that It took for double to complete was more than that of the floating point operation.
 Some versions of Cuda may or may not support double precision.
 USING Float size:(Main Reference Comparisons)
-        128     512      1024  2048
+        128     512      1024    2048
+        
 GPU   0.0744   0.0567  0.5670  0.0974
+
 SEQ   0.00168  0.18911 1.3487 47.6565
+
 OPENMP 0.00407 0.03434 0.30945 11.6471
 
 USING double size:
