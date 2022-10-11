@@ -14,7 +14,7 @@ that can be useful (not for small matrix sizes). I have done the basic version o
 parallelization so that I can compare the openmp and mpi versions which were doing 
 normal matrix multiplication:
 
-# Steps for my algorithms:
+# Steps for my appraoch:
 
 1] I initialized the row and column of the matrix using built in x and y dimensions inside the 
 cuda (for blockIdx and blockDim), here I have not initialized separate row and column
