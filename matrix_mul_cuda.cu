@@ -1,5 +1,5 @@
 /*
-    Created by: Andrew Sexton (cuda version Implemented by me(Aman Rai Saxena))
+     Implemented by Aman Saxena
           Date: March 21nd, 2022
 
     CSC258/458 - Parallel & Distributed Systems.
@@ -84,19 +84,7 @@ void print_array(const float* arr, int nsize) {
 
 // GPU Kernel
 __global__ void gpu_matmul(float* A, float* B, float* C, int nsize) {
-    /* Add your code here */
-    //
-    // calculate the uid block
-    // calculates unique thread ID in the block
-
-
-
-
-
-
-
-    //
-    /*===================*/
+ 
     float r=blockIdx.y*blockDim.y + threadIdx.y;
     float c=blockIdx.x*blockDim.x + threadIdx.x;
     float result=0;
@@ -107,19 +95,6 @@ __global__ void gpu_matmul(float* A, float* B, float* C, int nsize) {
         C[r*nsize+c]=result;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
@@ -157,22 +132,6 @@ int main(int argc, char *argv[]) {
     // Stop GPU timer
     clock_gettime(CLOCK_REALTIME, &gpu_start);
 
-
-
-    
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////
-    /* Add your code here */
-    //
-    //
-
     // RAM memory allocation
     int *l_a, *l_b, *l_c;
     cudaMallocHost((void **)&l_a, sizeof(int) * nsize * nsize);
@@ -200,19 +159,6 @@ int main(int argc, char *argv[]) {
     //GPU to RAM
     cudaMemcpy(l_c,C1, sizeof(int)*nsize*nsize, cudaMemcpyDeviceToHost);
 
-
-
-    //
-    /*=======
-
-
-
-
-
-
-
-
-
     for (int i = 0; i <= 3; i++)
     {
         t = clock();
@@ -232,36 +178,7 @@ int main(int argc, char *argv[]) {
     cudaFree(A);
     cudaFree(B);
 
-
-
-
-
-
-
-    ============*/
-
-    //////////////////////////////////////////////////////////////////////////////////
     // Stop GPU timer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     clock_gettime(CLOCK_REALTIME, &gpu_stop);	
@@ -280,12 +197,8 @@ int main(int argc, char *argv[]) {
     omp_matmul(A, B, C, nsize);
     clock_gettime(CLOCK_REALTIME, &omp_stop);
     std::cout << "OMP Time: " << ((omp_stop.tv_sec - omp_start.tv_sec) + (omp_stop.tv_nsec - omp_start.tv_nsec) / 1E9) << '\n';
-    
-
-
+ 
     verify(C,l_c,nsize);
-
-
 
     delete[] A;
     delete[] B;
