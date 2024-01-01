@@ -1,4 +1,4 @@
-# CUDA-matrix-Multiplication
+## CUDA-matrix-Multiplication
 Here I used CUDA to compute matrix multiplication and evaluated other frameworks such as OPENMP, MPI and Pthreads
 
 
@@ -6,7 +6,7 @@ Here I used CUDA to compute matrix multiplication and evaluated other frameworks
 
 
 
-# MATRIX MULTIPLICATION USING CUDA:
+## MATRIX MULTIPLICATION USING CUDA:
 
 There are multiple ways to parallelize the code while doing matrix multiplication. We can 
 use the method of doing parallelization using shared limited access to the global memory 
@@ -14,7 +14,7 @@ that can be useful (not for small matrix sizes). I have done the basic version o
 parallelization so that I can compare the openmp and mpi versions which were doing 
 normal matrix multiplication:
 
-# Steps for my appraoch:
+## Steps for my appraoch:
 
 1] I initialized the row and column of the matrix using built in x and y dimensions inside the 
 cuda (for blockIdx and blockDim), here I have not initialized separate row and column
@@ -40,16 +40,16 @@ copy result from the device to host.
 7] To verify all the result I have used the verify function and I was able to get correct values 
 for all.
 
-# Problems encountered:
+## Problems encountered:
 
 The main problem that got me stuck during Implementation was when I used the wrong 
 initialization for rows and columns and I was getting runtime errors and apart from that I 
 was using the cudaMallocHost and creating three varibles because I assumed that 
 CudaMemcpy may not use the normal malloc. Apart from this I was using (32,32) for grid 
 dimensions, but it was better for creating dimGrids depending on nsize.
-# Comparison of versions:
+## Comparison of versions:
 
-# USING Float size:(Main Reference Comparisions)
+## USING Float size:(Main Reference Comparisions)
        128     512      1024     2048
 
 GPU   0.0744   0.0567   0.5670  0.0974
@@ -72,7 +72,7 @@ because of high level parallelism that it does and we can see that it came to a 
 openMP is taking almost 12 seconds for task and Cuda is taking around 0.2 seconds this is 
 actually insane and beneficial for high level computation. 
 
-# Extras:
+## Extras:
 
 Comparison of explicit memory management vs CUDA 
 
@@ -134,9 +134,9 @@ SEQ     0.01168371 0.574244 1.5407   48.7247
 
 OPENMP  0.0097   0.0898416  0.35915  13.8581
 
-# Conclusion:
+## Conclusion:
 
-# GPU will outperform in higher order of matrices
+## GPU will outperform in higher order of matrices
 
 I given a task that has high parallelism GPU’s can be used and the task can be parallelized 
 easily. But If we are implementing something with shared memory multiprocessing then 
