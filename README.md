@@ -136,7 +136,7 @@ OPENMP  0.0097   0.0898416  0.35915  13.8581
 
 # Conclusion:
 
-# CUDA outperformed everyone!
+# GPU will outperform in higher order of matrices
 
 I given a task that has high parallelism GPU’s can be used and the task can be parallelized 
 easily. But If we are implementing something with shared memory multiprocessing then 
